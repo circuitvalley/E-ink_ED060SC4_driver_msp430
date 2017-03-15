@@ -5,9 +5,6 @@
 /*
  * main.c
  */
-#define RAM_START 	0x1F00 //up to 0x1FFF
-#define FRAM_START 	0xFE80
-
 
 static void initClock()
 {
@@ -29,37 +26,37 @@ int main(void) {
 	volatile unsigned int i=0;
 	WDTCTL = WDTPW | WDTHOLD;	// Stop watchdog timer for a while
 
-	 ioEinkEna();
-	 initClock();
+		ioEinkEna();
+		initClock();
 
-	 cleanink(1);
-	 cleanink(0);
-	 cleanink(1);
-	 cleanink(0);
-	 cleanink(0);
-	 cleanink(1);
-	 cleanink(1); //its really important that you do as minimum of as possible clean_white operation right before writing actual content to get correct contrast
-	 	 	 	 // if you do too many you will get faded content
-	 	 	 	 // if you do too less you will get bad contrast
-
-
-
- printstring("0123456789ABCDEFGHIJKLMNOPQ",0,150,26);
- printstring("0123456789ABCDEFGHIJKLMNOPQ",0,150,26);
-
-
-	 OE_CLEAR;
-	 GMOD_CLEAR;
+		cleanink(1);
+		cleanink(0);
+		cleanink(1);
+		cleanink(0);
+		cleanink(0);
+		cleanink(1);
+		cleanink(1); //its really important that you do as minimum of as possible clean_white operation right before writing actual content to get correct contrast
+		// if you do too many you will get faded content
+		// if you do too less you will get bad contrast
 
 
 
-
-	while(1)
-    {
-
+		printstring("0123456789ABCDEFGHIJKLMNOPQ",0,150,26);
+		printstring("0123456789ABCDEFGHIJKLMNOPQ",0,150,26);
 
 
-    }
+		OE_CLEAR;
+		GMOD_CLEAR;
+
+
+
+
+		while(1)
+		{
+
+
+
+		}
 
 
 }
